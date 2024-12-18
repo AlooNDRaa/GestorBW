@@ -22,9 +22,6 @@ function Navbar() {
           <Link to="/transactions">Transacciones</Link>
         </li>
         <li>
-          <Link to="/register">Register</Link>
-        </li>
-        <li>
             <DropdownMenu/>
         </li>
       </ul>

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { auth } from "../../credentials/firebaseConfig";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
-function RegisterScreen() {
+function RegisterScreen({ setUserName, setIsAuthenticated }) {
   const [isRegistering, setIsRegistering] = useState(true);
   const [email, setEmail] = useState("");
+  const [NickName, setNickName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
@@ -20,14 +24,22 @@ function RegisterScreen() {
       }
       try {
         await createUserWithEmailAndPassword(auth, email, password);
+        sessionStorage.setItem("userName", NickName); 
+        setUserName(NickName); 
+        setIsAuthenticated(true); 
         console.log("Usuario registrado con éxito");
+        window.location.href = "/home"; 
       } catch (error) {
         setError(error.message);
       }
     } else {
       try {
         await signInWithEmailAndPassword(auth, email, password);
+        sessionStorage.setItem("userName", NickName);
+        setUserName(NickName); 
+        setIsAuthenticated(true); 
         console.log("Inicio de sesión exitoso");
+        window.location.href = "/home";
       } catch (error) {
         setError(error.message);
       }
@@ -45,6 +57,13 @@ function RegisterScreen() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="NickName"
+          required
+          value={NickName}
+          onChange={(e) => setNickName(e.target.value)}
         />
         <input
           type="password"
@@ -74,8 +93,7 @@ function RegisterScreen() {
       </p>
       <footer>
         <p>
-          Al usar ByteWise, aceptas los{" "}
-          <a href="/terms">Términos de uso</a>,{" "}
+          Al usar ByteWise, aceptas los <a href="/terms">Términos de uso</a>,{" "}
           <a href="/privacy">Política de privacidad</a> y{" "}
           <a href="/precontractual">Términos precontractuales</a>.
         </p>
@@ -83,6 +101,5 @@ function RegisterScreen() {
     </div>
   );
 }
-
 
 export default RegisterScreen;

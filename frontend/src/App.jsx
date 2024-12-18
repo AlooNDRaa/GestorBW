@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MakeUser from "./assets/components/functions/MakeUser";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomeScreen from "./assets/components/HomeScreen";
 import RegisterScreen from "./assets/components/RegisterScreen";
 import HomeS from "./assets/components/home";
@@ -10,14 +9,15 @@ import Navbar from "./assets/components/generals/header";
 import Footer from "./assets/components/generals/footer";
 import "./App.css";
 
-
 function App() {
   const [userName, setUserName] = useState(""); 
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const storedName = sessionStorage.getItem("userName");
     if (storedName) {
       setUserName(storedName);
+      setIsAuthenticated(true);  
     }
   }, []);
 
@@ -30,16 +30,28 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<MakeUser setUserName={setUserName} />} 
+          element={isAuthenticated ? <Navigate to="/home" /> : <RegisterScreen setUserName={setUserName} setIsAuthenticated={setIsAuthenticated} />}
         />
-        <Route
+        
+        <Route 
           path="/home"
-          element={ <HomeScreen user={{ name: userName }} />} 
+          element={isAuthenticated ? <HomeScreen user={{ name: userName }} /> : <Navigate to="/" />}
         />
-        <Route path="/register" element={<RegisterScreen />} />
-        <Route path="/dashboard" element={<HomeS />} />
-        <Route path="/transactions" element={<Transacciones />} />
-        <Route path="/tareasYhabitos" element={<TareasHabitos />} />
+        
+        <Route 
+          path="/transactions"
+          element={isAuthenticated ? <Transacciones /> : <Navigate to="/" />}
+        />
+        <Route 
+          path="/tareasYhabitos"
+          element={isAuthenticated ? <TareasHabitos /> : <Navigate to="/" />}
+        />
+        
+        <Route 
+          path="/dashboard"
+          element={isAuthenticated ? <HomeS /> : <Navigate to="/" />}
+        />
+        
         <Route path="*" element={<h2>{ERROR_MESSAGE}</h2>} />
       </Routes>
       <Footer />
