@@ -149,7 +149,6 @@ function TareasHabitos() {
       </div>
 
       <div className="agregar-tarea">
-        <h4>{editandoTareaId ? "Editar" : "Nueva"}</h4>
         <form onSubmit={manejarTarea}>
           <input
             type="text"
@@ -159,7 +158,7 @@ function TareasHabitos() {
             required
           />
           <button type="submit">
-            {editandoTareaId ? "Guardar Cambios" : "Agregar"}
+            {editandoTareaId ? "Guardar" : "Agregar"}
           </button>
         </form>
       </div>

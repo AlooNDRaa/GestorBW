@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
         <>
-            <div className="item footer">
+            <footer className="item footer">
             <div className="div-footer">
                 <ul className="ul-footer">
                     <li><a className="li-a" href="https://twitter.com/julesforrest">Twitter</a></li>
@@ -14,7 +14,7 @@ const Footer = () => {
                     </li>
                 </ul>
             </div>
-            </div>
+            </footer>
         </>
     )
 }

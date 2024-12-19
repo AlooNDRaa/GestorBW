@@ -77,16 +77,16 @@ function DropdownMenu() {
 
       <Dropdown.Menu className="dropdown-menu">
         <Dropdown.Item className="menu-drop" onClick={toggleDarkMode}>
-          {isDarkmode ? "Modo claro" : "Modo oscuro"}
+          {isDarkmode ? "Ligth mode" : "Dark mode"}
         </Dropdown.Item>
         <Dropdown.Item className="menu-drop" onClick={toggleDislexia}>
-          {isDislexiaMode ? "Dislexia desactivar" : "Dislexia activar"}
+          {isDislexiaMode ? "Disable Dislexia" : "Enable Dislexia"}
         </Dropdown.Item>
         {daltonimsMode.map((mode) => (
           <Dropdown.Item className="menu-drop" key={mode} onClick={() => toggleDaltonimsMode(mode)}>
             {accessibilityMode === mode
-              ? `Desactivar ${mode.replace("body-", "")}`
-              : `Activar ${mode.replace("body-", "")}`}
+              ? `Disable ${mode.replace("body-", "")}`
+              : `Enable ${mode.replace("body-", "")}`}
           </Dropdown.Item>
         ))}
       </Dropdown.Menu>

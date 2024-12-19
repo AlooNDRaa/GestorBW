@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import HomeScreen from "./assets/components/HomeScreen";
 import RegisterScreen from "./assets/components/RegisterScreen";
 import HomeS from "./assets/components/home";
@@ -10,52 +16,87 @@ import "./App.css";
 import Header from "./assets/components/generals/header";
 
 function App() {
-  const [userName, setUserName] = useState(""); 
+  const [userName, setUserName] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const storedName = sessionStorage.getItem("userName");
     if (storedName) {
       setUserName(storedName);
-      setIsAuthenticated(true);  
+      setIsAuthenticated(true);
     }
   }, []);
 
-  const WIP_MESSAGE = "Página aún en construcción...";
-  const ERROR_MESSAGE = "¡UPS! Esa página no existe...";
-
   return (
     <BrowserRouter>
-      <Header />
+      <AppContent
+        userName={userName}
+        setUserName={setUserName}
+        isAuthenticated={isAuthenticated}
+        setIsAuthenticated={setIsAuthenticated}
+      />
+    </BrowserRouter>
+  );
+}
+
+function AppContent({
+  userName,
+  setUserName,
+  isAuthenticated,
+  setIsAuthenticated,
+}) {
+  const location = useLocation(); 
+
+  const ERROR_MESSAGE = "¡UPS! Esa página no existe...";
+  const isLoginScreen = location.pathname === "/";
+
+  return (
+    <div>
+      {!isLoginScreen && <Header />}{" "}
       <Routes>
         <Route
           path="/"
-          element={isAuthenticated ? <Navigate to="/home" /> : <RegisterScreen setUserName={setUserName} setIsAuthenticated={setIsAuthenticated} />}
+          element={
+            isAuthenticated ? (
+              <Navigate to="/home" />
+            ) : (
+              <RegisterScreen
+                setUserName={setUserName}
+                setIsAuthenticated={setIsAuthenticated}
+              />
+            )
+          }
         />
-        
-        <Route 
+
+        <Route
           path="/home"
-          element={isAuthenticated ? <HomeScreen user={{ name: userName }} /> : <Navigate to="/" />}
+          element={
+            isAuthenticated ? (
+              <HomeScreen user={{ name: userName }} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
         />
-        
-        <Route 
+
+        <Route
           path="/transactions"
           element={isAuthenticated ? <Transacciones /> : <Navigate to="/" />}
         />
-        <Route 
-          path="/tareasYhabitos"
+        <Route
+          path="/Tasks-and-habits"
           element={isAuthenticated ? <TareasHabitos /> : <Navigate to="/" />}
         />
-        
-        <Route 
+
+        <Route
           path="/dashboard"
           element={isAuthenticated ? <HomeS /> : <Navigate to="/" />}
         />
-        
+
         <Route path="*" element={<h2>{ERROR_MESSAGE}</h2>} />
       </Routes>
-      <Footer />
-    </BrowserRouter>
+      {!isLoginScreen && <Footer />}{" "}
+    </div>
   );
 }
 

@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import DropdownMenu from "./functions/DropdorwnMenu";
 
 function RegisterScreen({ setUserName, setIsAuthenticated }) {
   const [isRegistering, setIsRegistering] = useState(true);
@@ -47,13 +48,17 @@ function RegisterScreen({ setUserName, setIsAuthenticated }) {
   };
 
   return (
+    <div className="drop">
+      <div className="menu-drop-regs">
+      <DropdownMenu/>
+      </div>
     <div className="register-container">
-      <h2>{isRegistering ? "Crear cuenta" : "Iniciar sesión"}</h2>
+      <h2>{isRegistering ? "Register" : "Login"}</h2>
       {error && <p style={{ color: "red" }}>{error}</p>}
       <form className="register-form" onSubmit={handleSubmit}>
         <input
           type="email"
-          placeholder="Correo electrónico"
+          placeholder="Email Adress"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -67,7 +72,7 @@ function RegisterScreen({ setUserName, setIsAuthenticated }) {
         />
         <input
           type="password"
-          placeholder="Contraseña"
+          placeholder="Password"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -75,29 +80,27 @@ function RegisterScreen({ setUserName, setIsAuthenticated }) {
         {isRegistering && (
           <input
             type="password"
-            placeholder="Confirmar contraseña"
+            placeholder="Confirm password"
             required
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         )}
         <button type="submit" className="submit-btn">
-          {isRegistering ? "Registrarse" : "Iniciar sesión"}
+          {isRegistering ? "Register" : "Login"}
         </button>
       </form>
       <p className="toggle-text">
-        {isRegistering ? "¿Ya tienes una cuenta?" : "¿No tienes una cuenta?"}{" "}
-        <button onClick={toggleForm} className="toggle-btn">
-          {isRegistering ? "Inicia sesión aquí" : "Regístrate aquí"}
+        {isRegistering ? "Alredy have an account?" : "Don´t have an account?"}{" "}
+        <button onClick={toggleForm} className="text-primary bg-transparent">
+          {isRegistering ? "Login here" : "Register here"}
         </button>
       </p>
-      <footer>
-        <p>
-          Al usar ByteWise, aceptas los <a href="/terms">Términos de uso</a>,{" "}
-          <a href="/privacy">Política de privacidad</a> y{" "}
-          <a href="/precontractual">Términos precontractuales</a>.
+        <p className="toggle-text">
+          By using ByteWise, you agree to the <a href="/terms">Terms of use</a> y {" "}
+          <a href="/privacy">Privacy Policy</a>
         </p>
-      </footer>
+    </div>
     </div>
   );
 }

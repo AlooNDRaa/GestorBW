@@ -6,7 +6,7 @@ function HomeScreen({ user }) {
   return (
     <div className="container">
       <div className="home-container">
-        <h1>Bienvenid@, {user.name || "Usuario"}, a ByteWise</h1>
+        <h1>Welcome {user.name || "Usuario"}, to ByteWise</h1>
 
         <div className="home-options">
           {

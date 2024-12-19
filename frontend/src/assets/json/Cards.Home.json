@@ -1,27 +1,26 @@
 [
-    {
-      "title": "Dashboard",
-      "description": "Visualiza un resumen de tu situación financiera.",
-      "link": "/dashboard",
-      "buttonText": "Ir al Dashboard"
-    },
-    {
-      "title": "Gestión de Transacciones",
-      "description": "Administra tus ingresos y gastos.",
-      "link": "/transactions",
-      "buttonText": "Gestionar Transacciones"
-    },
-    {
-      "title": "Gestión de Tareas y Hábitos",
-      "description": "Organiza tus tareas y hábitos financieros.",
-      "link": "/tareasYhabitos",
-      "buttonText": "Gestionar Tareas y Hábitos"
-    },
-    {
-      "title": "Gestión de estres",
-      "description": "Relajate en unos minutos con el rango musical",
-      "link": "/manageEstres",
-      "buttonText": "Gestionar estres"
-    }
-  ]
-  
+  {
+    "title": "Dashboard",
+    "description": "View a summary of your financial situation.",
+    "link": "/dashboard",
+    "buttonText": "Go to Dashboard"
+  },
+  {
+    "title": "Transaction Management",
+    "description": "Manage your income and expenses.",
+    "link": "/transactions",
+    "buttonText": "Manage Transactions"
+  },
+  {
+    "title": "Task and Habit Management",
+    "description": "Organize your tasks and financial habits.",
+    "link": "/Tasks-and-habits",
+    "buttonText": "Manage Tasks and Habits"
+  },
+  {
+    "title": "Stress Management",
+    "description": "Relax in a few minutes with the musical range.",
+    "link": "/manageEstres",
+    "buttonText": "Manage Stress"
+  }
+]

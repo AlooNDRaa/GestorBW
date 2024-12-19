@@ -14,10 +14,24 @@
   --secondary-text: #555555;
   --border-color: #dddddd;
   --button-hover: #0d3f3a;
+  --newHover: #0b132bfd;
 }
 
-body {
-  height: 100vh;
+h1 {
+  font-family: "Montserrat", serif;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li a {
+  color: var(--newHover);
+  font-weight: 500;
+  font-family: "Montserrat", serif;
+  text-decoration: none;
 }
 
 a {
@@ -25,89 +39,57 @@ a {
 }
 
 a:hover {
-  color: var(--contrast) !important;
+  color: var(--contrast);
 }
 
-h1, h2, h3 {
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-p {
-  margin-bottom: 1rem;
-  color: var(--secondary-text);
-}
 
 button {
-  padding: 0.8rem 1.2rem;
-  background-color: var(--buttons) !important;
-  color: white;
-  border: none !important;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  border: none;
 }
 
-button:hover {
-  background-color: var(--button-hover);
+
+.home-container h1 {
+  margin-top: 2rem;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.nav-cont{
+.nav-cont {
   display: flex;
-  justify-content: space-between;
   width: 100%;
+  border-bottom: 1px solid rgba(136, 131, 131, 0.418);
 }
 
 .nav-home {
   display: flex;
   justify-content: end;
   align-items: center; 
-  padding: 1rem 2rem;
   width: 100%;
+  padding: 2.2rem 1.8rem;
+
 }
 
 .nav-home .ul-nav {
   display: flex;
-  list-style: none;
-  gap: 1.5rem;
+  gap: 0.3rem;
   justify-content: center;
-  padding: 0;
   margin: 0;
 }
 
-.nav-home .ul-nav li {
-  display: flex;
+#dropdown-basic {
+  background-color: var(--newHover);
+  border: none;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
 }
-
-.headerLink {
-  margin-right: auto; 
-}
-
-.nav-home .nav-link {
-  text-decoration: none;
-  color: var(--primary-color);
-}
-
-.nav-home .nav-link:hover {
-  color: var(--button-hover) !important;
-}
-
-
 
 nav li {
   margin: 0 1.3rem;
   align-items: center;
+  color: var(--background2);
 }
 
 
 .logo {
-  height: 4.9rem;
+  height: 4rem;
 }
 
 
@@ -146,7 +128,7 @@ nav li {
 }
 
 .btn-primary {
-  background-color: var(--button-hover);
+  background-color: var(--newHover);
   color: white;
   padding: 0.8rem;
   border-radius: 0.5rem;
@@ -155,27 +137,34 @@ nav li {
 
 .btn-primary:hover {
   background-color: var(--contrast);
-  color: var(--color1);
+  color: var(--background) !important;
   font-weight: 500;
 }
 
 .register-container {
-  max-width: 36rem;
-  height: 30rem;
-  margin: 0 auto;
+  max-width: 40rem;
+  position: static;
+  height: min-content;
+  margin: 1rem auto;
   background-color: var(--background2);
   color: white;
   padding: 2rem;
-  margin-block: 4rem;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 7px 10px 20px #0b132b94;
   text-align: center;
 }
 
+.drop {
+  margin-inline: 1rem;
+}
+
 .register-container h2 {
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+  margin-bottom: 1.8rem;
+  font-size: 2rem;
   color: var(--primary-color);
+  font-family: "Montserrat", serif;
+  font-weight: 700;
+  letter-spacing: 5px;
 }
 
 .register-form {
@@ -186,41 +175,53 @@ nav li {
 
 .register-form input {
   width: 100%;
-  padding: 0.8rem;
-  border: 1px solid var(--border-color);
+  padding: 0.7rem;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-family: "Montserrat", serif;
 }
 
 .register-form input:focus {
   outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 4px var(--primary-color);
+  border-color: var(--contrast);
+}
+
+.menu-drop-regs {
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  justify-content: end;
 }
 
 .submit-btn {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--background) !important;
+  color: var(--background2);
   border: none;
   padding: 0.8rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 400;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-family: "Montserrat", serif;
 }
 
 .submit-btn:hover {
-  background-color: var(--hover-color);
+  background-color: var(--newHover) !important;
+  color: var(--background);
 }
 
 .toggle-text {
   margin-top: 1rem;
+  color: var(--background);
+  font-family: "Montserrat", serif;
+  font-weight: 200;
 }
 
 .toggle-btn {
   background: none;
   border: none;
-  color: var(--primary-color);
+  color: var(--background);
   cursor: pointer;
   text-decoration: underline;
   padding: 0;
@@ -244,21 +245,14 @@ nav li {
   color: var(--color1);
 }
 
-.footer {
-  grid-area: footer;
-  background-color: var(--back2);
-  display: flex;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  bottom: 0;
-  height: 2.5rem;
-}
 
 .div-footer {
-  background-color: white;
   width: 100%;
+  height: 10rem;
   bottom: 0;
+  display: flex;
+  position: relative;
+  border-top: 1px solid rgba(66, 65, 65, 0.37);
 }
 
 .ul-footer {
@@ -269,12 +263,6 @@ nav li {
   list-style: none;
   margin: auto;
 }
-
-
-li .li-a {
-  box-shadow: inset 0 -1px 0 hsla(0, 0%, 100%, 0.4)
-}
-
 
 
 li:hover ~ li p {
@@ -296,45 +284,13 @@ li:hover ~ li p {
 
 
 
-.make-user-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 77.8vh;
-  color: var(--color1);
-}
-
 .input-container, .welcome-message {
   text-align: center;
 }
 
 
-.name-input {
-  padding: 1.5rem;
-  font-size: 1rem;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
 
-.save-btn, .clear-btn {
-  padding: 1.5rem;
-  font-size: 16px;
-  color: #fff;
-  background-color: var(--buttons);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.save-btn:hover, .clear-btn:hover {
-  background-color: var(--button-hover);
-}
-
-
-/* BOARDS */
+/* BOARDS  TAREAS Y HABITOS -------------------*/
 
 .tareas-habitos-board {
   display: flex;
@@ -343,8 +299,8 @@ li:hover ~ li p {
   padding: 20px;
   margin: 0 auto;
   border-radius: 8px;
-  height: 80vh;
   width: 100%;
+  margin-block: 2rem;
 }
 
 .tareas-habitos-div {
@@ -353,114 +309,29 @@ li:hover ~ li p {
   width: 100%;
 }
 
-h1 {
-  text-align: center;
-}
-
 .div-ul-list {
   height: 16rem;
-  width: 40%;
+  width: 45%;
   overflow-y: scroll;
-  background-color: var(--background);
   padding: 1rem;
-  box-shadow: inset 10px 7px 9px rgb(180, 180, 180);
   border-radius: 0.5rem;
 
   
-  scrollbar-color: #000000 #d6d6d6;
+  scrollbar-color: #000000 #ffffff;
   scrollbar-width: thin;
 }
 
-
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
 .tarea-item {
-  background-color: #fff;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 6px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.tarea-item.completada span {
-  text-decoration: line-through;
-  color: #999;
-}
-
-.tarea-actions button {
-  padding: 5px 10px;
-  margin-left: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.tarea-actions button:hover {
-  background-color: #0056b3;
-}
-
-.agregar-tarea form {
-  display: flex;
-  justify-content: space-between;
-}
-
-.agregar-tarea input {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  flex: 1;
-  margin-right: 10px;
-}
-
-.agregar-tarea button {
-  padding: 10px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.agregar-tarea button:hover {
-  background-color: #218838;
-}
-
-.tipo-tarea {
-  margin-bottom: 20px;
-}
-
-.tipo-tarea select {
-  padding: 8px;
-  font-size: 16px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-}
-
-.tareas-lista, .habitos-lista {
-  margin-bottom: 20px;
-}
-
-.tarea-item {
-  background-color: #fff;
-  padding: 10px;
+  background-color: #ffffff;
+  padding: 1rem;
   margin: 5px 0;
   border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 7px 5px 0px rgba(190, 190, 190, 0.342);
 }
 
 .tarea-item.completada {
   text-decoration: line-through;
-  color: #999;
+  color: #0b910b8e;
 }
 
 .tarea-item {
@@ -471,12 +342,62 @@ ul {
   width: 70%;
 }
 
+.agregar-tarea form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.agregar-tarea input {
+  padding: 1rem;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  width: 50%;
+  background-color: var(--background2);
+}
+
+.agregar-tarea button {
+  padding: 10px;
+  background-color: var(--newHover);
+  color: white;
+  border: none;
+  border-radius: 0px 0.5rem 0.5rem 0px; 
+  cursor: pointer;
+}
+
+.agregar-tarea button:hover {
+  background-color: var(--contrast);
+}
+
+.tipo-tarea {
+  margin-bottom: 20px;
+}
+
+.tipo-tarea select {
+  padding: 0.6rem;
+  font-size: 16px;
+  border-radius: 0.5rem;
+  border: none;
+  margin-left: 1rem;
+  box-shadow: inset 7px 5px 0px rgba(190, 190, 190, 0.342);
+}
+
+.tareas-lista, .habitos-lista {
+  margin-bottom: 20px;
+}
+
+/* BUTTON TAREA */
+
 .menu-boton {
   background: none;
   border: none;
   font-size: 1rem;
   cursor: pointer;
   z-index: 9;
+  background-color: var(--newHover);
+  color: white;
+  padding: 1rem;
 }
 
 .menu {
@@ -498,6 +419,8 @@ ul {
   text-align: center;
   cursor: pointer;
   padding: 4px 8px;
+  background-color: var(--newHover);
+  color: white;
 }
 
 

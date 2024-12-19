@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../../img/color-bw-03.svg";
 import { Link } from "react-router-dom";
-import { Navbar, Container, NavDropdown, Nav  } from "react-bootstrap";
+import { Navbar, Container, Nav  } from "react-bootstrap";
 import DropdownMenu from "../functions/DropdorwnMenu";
 
 
@@ -17,16 +17,17 @@ function Header() {
           <Nav className="nav-home">
             <Nav.Link>
             <ul className="ul-nav">
-              <li>
+              <li className="li-nav">
                 <Link to="/home">Home</Link>
               </li>
-              <li>
-                <Link to="/tareasYhabitos">Tareas y habitos</Link>
+              <li className="li-nav">
+                <Link to="/Tasks-and-habits">Tasks and habits</Link>
               </li>
-              <li>
-                <Link to="/transactions">Transacciones</Link>
+              <li className="li-nav">
+                <Link to="/transactions">Transactions</Link>
               </li>
-              <li>
+              <li className="li-nav">
+                <Link to="/dashboard">Dashboard</Link>
               </li>
             </ul>
             </Nav.Link>
