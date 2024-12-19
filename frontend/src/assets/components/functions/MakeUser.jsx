@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// force sjasdas isdvñs
-
 const MakeUser = ({ setUserName }) => {
   const [name, setName] = useState("");
   const navigate = useNavigate(); 

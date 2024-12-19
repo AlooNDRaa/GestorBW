@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
 
-// force deleteaaasdbgvufgulv
 
 const PORT = process.env.PORT || 3000;
 const app = express();

@@ -5,9 +5,9 @@ import RegisterScreen from "./assets/components/RegisterScreen";
 import HomeS from "./assets/components/home";
 import Transacciones from "./assets/components/Transacciones";
 import TareasHabitos from "./assets/components/TareasHabitos";
-import Navbar from "./assets/components/generals/header";
 import Footer from "./assets/components/generals/footer";
 import "./App.css";
+import Header from "./assets/components/generals/header";
 
 function App() {
   const [userName, setUserName] = useState(""); 
@@ -26,7 +26,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
+      <Header />
       <Routes>
         <Route
           path="/"
