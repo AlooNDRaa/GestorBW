@@ -2,8 +2,8 @@ import React from 'react';
 
 function AlertasRecomendaciones() {
     const alertas = [
-        { id: 1, mensaje: 'Recordatorio: Pagar factura de electricidad antes del 5 de octubre.' },
-        { id: 2, mensaje: 'Sugerencia: Aumenta tus ahorros en un 10% este mes.' }
+        { id: 1, mensaje: 'Reminder: Pay the electricity bill before October 5th.' },
+        { id: 2, mensaje: 'Suggestion: Increase your savings by 10% this month.' }        
     ];
 
     return (

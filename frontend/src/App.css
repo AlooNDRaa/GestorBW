@@ -84,6 +84,14 @@ nav li {
   color: var(--background2);
 }
 
+.log-out {
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  background-color: var(--newHover);
+  color: white;
+  height: 3rem;
+}
+
 .logo {
   height: 4rem;
 }
@@ -123,7 +131,7 @@ nav li {
 }
 
 .btn-primary {
-  background-color: var(--newHover);
+  background-color: var(--button-hover);
   color: white;
   padding: 0.8rem;
   border-radius: 0.5rem;
@@ -136,16 +144,22 @@ nav li {
   font-weight: 500;
 }
 
+.register-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
 .register-container {
-  max-width: 40rem;
-  position: static;
+  max-width: 50rem;
   height: min-content;
   margin: 1rem auto;
   background-color: var(--background2);
   color: white;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 7px 10px 20px #0b132b94;
+  box-shadow: 3px 1px 10px #36363694;
   text-align: center;
 }
 
@@ -174,6 +188,13 @@ nav li {
   border-radius: 5px;
   font-size: 0.9rem;
   font-family: "Montserrat", serif;
+}
+
+.password-requirements {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  text-align: center;
 }
 
 .register-form input:focus {
@@ -213,15 +234,6 @@ nav li {
   font-weight: 200;
 }
 
-.toggle-btn {
-  background: none;
-  border: none;
-  color: var(--background);
-  cursor: pointer;
-  text-decoration: underline;
-  padding: 0;
-  font-size: 1rem;
-}
 
 .dashboard-container {
   padding: 2rem;
@@ -472,7 +484,7 @@ li:hover ~ li p {
 }
 
 .transaccion-item {
-  background-color: #fff;
+  background-color: #faf1f1;
   padding: 0.8rem;
   margin-bottom: 8px;
   border-radius: 6px;
@@ -484,7 +496,7 @@ li:hover ~ li p {
 }
 
 .transaccion-item:hover {
-  background-color: #f8f8f8;
+  background-color: #cff1f7;
 }
 
 .add-transaccion {
@@ -559,7 +571,6 @@ li:hover ~ li p {
 
 /* DASHBOARD */
 
-
 .alertas-list {
   margin-top: -10px;
   position: fixed;
@@ -568,7 +579,7 @@ li:hover ~ li p {
   margin-left: 20rem;
 }
 
-.meta-list{
+.meta-list {
   margin-top: 20px;
 }
 
@@ -577,7 +588,7 @@ li:hover ~ li p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 1rem;
   margin-bottom: 10px;
   background-color: #f9f9f9;
   border-radius: 5px;
@@ -589,16 +600,15 @@ li:hover ~ li p {
   background-color: #f1f1f1;
 }
 
-
-.metas-div {
-  margin-top: 4rem;
+.buttonsmeta {
+  display: flex;
+  gap: 0.4rem;
 }
 
 .completed-text {
   color: #388e3c;
   font-weight: bold;
 }
-
 
 .alerta-item {
   font-size: 16px;
@@ -640,6 +650,113 @@ section {
   order: 2;
 }
 
+.metas-div {
+  margin-top: 4rem;
+}
+
+.add-meta {
+  padding: 1rem;
+  border-radius: 0.4rem;
+  background-color: var(--newHover);
+  color: white;
+}
+
+.add-meta:hover {
+  background-color: var(--button-hover);
+}
+
+.submit-meta {
+  padding: 0.88rem;
+  margin: 0.7px;
+  margin-left: -2rem;
+  background-color: var(--newHover);
+  color: white;
+}
+.button-cancel {
+  padding: 0.88rem;
+  margin: 0.7px;
+  background-color: var(--newHover);
+  color: white;
+}
+
+.submit-meta:hover,
+.button-cancel:hover {
+  background-color: var(--button-hover);
+}
+
+.toggle-button {
+  padding: 0.6rem;
+  border-radius: 0.4rem;
+  background-color: var(--newHover);
+  color: white;
+}
+
+.toggle-button:hover {
+  background-color: var(--button-hover);
+}
+
+.delete-button {
+  background-color: var(--button-hover);
+  padding: 0.7rem;
+  border-radius: 0.4rem;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: red;
+}
+
+/* MEDIDOR DE ESTRES ------------------- */
+
+.div-stress h1 {
+  margin-bottom: 2rem;
+}
+
+.stress-meter {
+  width: 80%;
+}
+
+input[type="range"] {
+  -webkit-appearance: none; 
+  width: 60%;
+  height: 8px;
+  background: #cfcdcd; 
+  border-radius: 5px; 
+  outline: none; 
+  transition: background 0.3s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px; 
+  background: var(--background2);
+  border-radius: 50%; 
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: var(--newHover);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--background2);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  background: #5087ff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 /* MODO OSCURO */
 
 .dark-mode {
@@ -664,7 +781,11 @@ section {
 }
 
 .dark-mode li a {
-  color: white !important;
+  color: white;
+}
+
+.dark-mode p {
+  color: white;
 }
 
 /* CARDS HOME */
@@ -692,7 +813,7 @@ section {
   background-color: #0f0e0e;
 }
 
-/* DASHBOARD --------- */
+/* DASHBOARD TAREAS HABITOS--------- */
 
 .dark-mode .tareas-habitos-board {
   background-color: transparent;
@@ -733,6 +854,52 @@ section {
   color: white;
 }
 
+/* Transactions ---------------- */
+
+.dark-mode .transacciones-board {
+  background-color: transparent;
+}
+
+.dark-mode .transacciones-list {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.dark-mode .transaccion-item {
+  background-color: transparent;
+}
+
+.dark-mode .transaccion-item input {
+  background-color: #000000;
+}
+
+.dark-mode .input-description,
+.dark-mode .input-monto {
+  background-color: #000000;
+  color: white;
+}
+
+/* DASHBOARD Y METAS */
+
+.dark-mode .dashboard-content > section {
+  flex: 1;
+  padding: 20px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .meta-item {
+  background-color: #000000;
+  box-shadow: inset 10px 8px 11px #070707;
+  color: white;
+}
+
+.dark-mode .meta-item:hover {
+  background-color: #000000;
+  box-shadow: 10px 8px 11px #070707;
+}
 
 /* DISLEXIA */
 

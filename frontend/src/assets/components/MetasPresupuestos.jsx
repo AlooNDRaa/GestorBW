@@ -4,8 +4,8 @@ function MetasPresupuestos() {
     const [metas, setMetas] = useState(() => {
         const storedMetas = localStorage.getItem('metas');
         return storedMetas ? JSON.parse(storedMetas) : [
-            { id: 1, nombre: 'Ahorro para vacaciones', monto: 2000, completado: false },
-            { id: 2, nombre: 'Pago de tarjeta de crédito', monto: 500, completado: true }
+            { id: 1, nombre: 'Vacation savings', monto: 2000, completado: false },
+            { id: 2, nombre: 'Credit card payment', monto: 500, completado: true }
         ];
     });
 
@@ -46,44 +46,46 @@ function MetasPresupuestos() {
 
     return (
         <div className='metas-div'>
-            <h3>Metas Activas</h3>
             {!agregarModo && (
-                <button className="button add-meta" onClick={() => setAgregarModo(true)}>Agregar Meta</button>
+                <button className="button add-meta" onClick={() => setAgregarModo(true)}>New Goal</button>
             )}
 
             {agregarModo && (
                 <div>
                     <input
                         type="text"
-                        placeholder="Nombre de la meta"
+                        placeholder="Goal Name"
                         value={nuevaMetaNombre}
                         onChange={(e) => setNuevaMetaNombre(e.target.value)}
                         className="input-description"
                     />
                     <input
                         type="number"
-                        placeholder="Monto"
+                        placeholder="Amount"
                         value={nuevaMetaMonto}
                         onChange={(e) => setNuevaMetaMonto(e.target.value)}
                         className="input-monto"
                     />
-                    <button className="button submit-meta" onClick={agregarMeta}>Agregar</button>
-                    <button className="button cancel" onClick={() => setAgregarModo(false)}>Cancelar</button>
+                    <button className="button submit-meta" onClick={agregarMeta}>Add</button>
+                    <button className="button-cancel" onClick={() => setAgregarModo(false)}>Cancel</button>
                 </div>
             )}
 
             <ul className="meta-list">
+                <h3>Goals:</h3>
                 {metas.map(meta => (
                     <li key={meta.id} className="meta-item">
                         {meta.nombre} - ${meta.monto} 
-                        {meta.completado && <span className="completed-text">(Completada)</span>}
-                        <button 
-                            className="button toggle-button"
-                            onClick={() => toggleMetaCompletada(meta.id)}
-                        >
-                            {meta.completado ? "Reactivar" : "Completar"}
-                        </button>
-                        <button className="button delete-button" onClick={() => eliminarMeta(meta.id)}>Eliminar</button>
+                        {meta.completado && <span className="completed-text">(Completed)</span>}
+                        <div className="buttonsmeta">
+                            <button 
+                                className="button toggle-button"
+                                onClick={() => toggleMetaCompletada(meta.id)}
+                            >
+                                {meta.completado ? "Reactivate" : "Complete"}
+                            </button>
+                            <button className="button delete-button" onClick={() => eliminarMeta(meta.id)}>Delete</button>
+                        </div>
                     </li>
                 ))}
             </ul>

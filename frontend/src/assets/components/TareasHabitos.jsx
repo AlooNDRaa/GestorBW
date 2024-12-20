@@ -2,15 +2,15 @@ import React, { useState } from "react";
 
 function TareasHabitos() {
   const [tareas, setTareas] = useState([
-    { id: 1, descripcion: "Hacer ejercicio", completada: false, tipo: "tarea" },
-    { id: 2, descripcion: "Leer un libro", completada: true, tipo: "tarea" },
-    { id: 3, descripcion: "Meditar", completada: false, tipo: "hábito" },
+    { id: 1, descripcion: "Exercise", completada: false, tipo: "task" },
+    { id: 2, descripcion: "Read a book", completada: true, tipo: "task" },
+    { id: 3, descripcion: "Meditate", completada: false, tipo: "habit" },
   ]);
 
   const [nuevaTarea, setNuevaTarea] = useState("");
-  const [tipoSeleccionado, setTipoSeleccionado] = useState("tarea"); // Tipo de tarea
-  const [editandoTareaId, setEditandoTareaId] = useState(null); // ID de tarea que se edita
-  const [menuAbiertoId, setMenuAbiertoId] = useState(null); // ID de la tarea con menú abierto
+  const [tipoSeleccionado, setTipoSeleccionado] = useState("task"); // Task type
+  const [editandoTareaId, setEditandoTareaId] = useState(null); // ID of the task being edited
+  const [menuAbiertoId, setMenuAbiertoId] = useState(null); // ID of the task with open menu
 
   const manejarTarea = (e) => {
     e.preventDefault();
@@ -58,36 +58,34 @@ function TareasHabitos() {
   };
 
   const toggleMenu = (id) => {
-    setMenuAbiertoId(menuAbiertoId === id ? null : id); // Alterna el estado del menú
+    setMenuAbiertoId(menuAbiertoId === id ? null : id); // Toggle menu state
   };
 
   return (
     <div className="tareas-habitos-board">
-      <h1>Gestión de Tareas y Hábitos</h1>
+      <h1>Task and Habit Management</h1>
 
       <div className="tipo-tarea">
-        <label>Selecciona entre:</label>
+        <label>Select between:</label>
         <select
           value={tipoSeleccionado}
           onChange={(e) => setTipoSeleccionado(e.target.value)}
         >
-          <option value="tarea">Tarea</option>
-          <option value="hábito">Hábito</option>
+          <option value="task">Task</option>
+          <option value="habit">Habit</option>
         </select>
       </div>
 
       <div className="tareas-habitos-div">
         <div className="tareas-lista div-ul-list">
-          <h3>Tareas</h3>
+          <h3>Tasks</h3>
           <ul>
             {tareas
-              .filter((tarea) => tarea.tipo === "tarea")
+              .filter((tarea) => tarea.tipo === "task")
               .map((tarea) => (
                 <li
                   key={tarea.id}
-                  className={`tarea-item ${
-                    tarea.completada ? "completada" : ""
-                  }`}
+                  className={`tarea-item ${tarea.completada ? "completada" : ""}`}
                 >
                   <span>{tarea.descripcion}</span>
                   <button
@@ -99,11 +97,11 @@ function TareasHabitos() {
                   {menuAbiertoId === tarea.id && (
                     <div className="menu">
                       <button onClick={() => toggleCompletada(tarea.id)}>
-                        {tarea.completada ? "Desmarcar" : "Completar"}
+                        {tarea.completada ? "Unmark" : "Complete"}
                       </button>
-                      <button onClick={() => editarTarea(tarea.id)}>Editar</button>
+                      <button onClick={() => editarTarea(tarea.id)}>Edit</button>
                       <button onClick={() => eliminarTarea(tarea.id)}>
-                        Eliminar
+                        Delete
                       </button>
                     </div>
                   )}
@@ -113,16 +111,14 @@ function TareasHabitos() {
         </div>
 
         <div className="habitos-lista div-ul-list">
-          <h3>Hábitos</h3>
+          <h3>Habits</h3>
           <ul>
             {tareas
-              .filter((tarea) => tarea.tipo === "hábito")
+              .filter((tarea) => tarea.tipo === "habit")
               .map((tarea) => (
                 <li
                   key={tarea.id}
-                  className={`tarea-item ${
-                    tarea.completada ? "completada" : ""
-                  }`}
+                  className={`tarea-item ${tarea.completada ? "completada" : ""}`}
                 >
                   <span>{tarea.descripcion}</span>
                   <button
@@ -134,11 +130,11 @@ function TareasHabitos() {
                   {menuAbiertoId === tarea.id && (
                     <div className="menu">
                       <button onClick={() => toggleCompletada(tarea.id)}>
-                        {tarea.completada ? "Desmarcar" : "Completar"}
+                        {tarea.completada ? "Unmark" : "Complete"}
                       </button>
-                      <button onClick={() => editarTarea(tarea.id)}>Editar</button>
+                      <button onClick={() => editarTarea(tarea.id)}>Edit</button>
                       <button onClick={() => eliminarTarea(tarea.id)}>
-                        Eliminar
+                        Delete
                       </button>
                     </div>
                   )}
@@ -152,13 +148,13 @@ function TareasHabitos() {
         <form onSubmit={manejarTarea}>
           <input
             type="text"
-            placeholder="Descripción"
+            placeholder="Description"
             value={nuevaTarea}
             onChange={(e) => setNuevaTarea(e.target.value)}
             required
           />
           <button type="submit">
-            {editandoTareaId ? "Guardar" : "Agregar"}
+            {editandoTareaId ? "Save" : "Add"}
           </button>
         </form>
       </div>

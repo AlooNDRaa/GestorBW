@@ -13,11 +13,11 @@ function ResumenGeneral() {
       const año = transaccion.fecha.slice(6, 10); 
       const mesAño = `${mes}-${año}`; 
       if (!acc[mesAño]) {
-        acc[mesAño] = { name: `${mes}/${año}`, ingresos: 0, gastos: 0 };
+        acc[mesAño] = { name: `${mes}/${año}`, Incomes: 0, Expenses: 0 };
       }
 
-      if (transaccion.monto > 0) acc[mesAño].ingresos += transaccion.monto;
-      else acc[mesAño].gastos += transaccion.monto;
+      if (transaccion.monto > 0) acc[mesAño].Incomes += transaccion.monto;
+      else acc[mesAño].Expenses += transaccion.monto;
 
       return acc;
     }, {});
@@ -30,23 +30,23 @@ function ResumenGeneral() {
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
-      <h3>Estado Financiero Actual</h3>
+      <h3>Current Financial Status</h3>
       <BarChart
         width={600}
-        height={400}
+        height={500}
         data={data}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        margin={{ top: 5, right: 30, left: 20, bottom: 9 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
-        <Bar dataKey="ingresos" fill="#8884d8" />
-        <Bar dataKey="gastos" fill="#82ca9d" />
+        <Bar dataKey="Incomes" fill="#16262e" />
+        <Bar dataKey="Expenses" fill="#0e3b40" />
       </BarChart>
-      <p>
-        Ingreso Total: ${data.reduce((total, item) => total + item.ingresos, 0)}{" "}
-        | Gasto Total: ${data.reduce((total, item) => total + item.gastos, 0)}
+      <p className="dash-p">
+        Total Income: ${data.reduce((total, item) => total + item.Incomes, 0)}{" "}
+        | Total Expense: ${data.reduce((total, item) => total + item.Expenses, 0)}
       </p>
     </div>
   );

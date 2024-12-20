@@ -15,6 +15,7 @@ import Footer from "./assets/components/generals/footer";
 import "./App.css";
 import Header from "./assets/components/generals/header";
 import Dashboard from "./assets/components/Dashboard";
+import RangoDeEstres from "./assets/components/RangoDeEstres";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -53,7 +54,7 @@ function AppContent({
 
   return (
     <div>
-      {!isLoginScreen && <Header />}{" "}
+      {!isLoginScreen &&       <Header setIsAuthenticated={setIsAuthenticated} />}{" "}
       <Routes>
         <Route
           path="/"
@@ -90,9 +91,15 @@ function AppContent({
         />
 
         <Route
+          path="/mangamentEstress"
+          element={isAuthenticated ? <RangoDeEstres /> : <Navigate to="/" />}
+        />
+
+        <Route
           path="/dashboard"
           element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />}
         />
+
 
         <Route path="*" element={<h2>{ERROR_MESSAGE}</h2>} />
       </Routes>
