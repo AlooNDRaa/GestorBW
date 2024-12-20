@@ -7,11 +7,7 @@ function DropdownMenu() {
   const [isDislexiaMode, setIsDislexiaMode] = useState(false);
   const [accessibilityMode, setIsAccessibilityMode] = useState("");
 
-  const daltonimsMode = [
-    "body-deuteranomaly",
-    "Tritanomalia",
-    "body-tritanomaly",
-  ];
+  const daltonimsMode = ["Daltonims"];
 
   useEffect(() => {
     const savedDarkMode = localStorage.getItem("dark-mode");
@@ -48,10 +44,10 @@ function DropdownMenu() {
   const toggleDislexia = () => {
     if (isDislexiaMode) {
       document.body.classList.remove("body-dislexia");
-      localStorage.setItem("body-dislexia", "disabled");
+      localStorage.setItem("dislexia-mode", "disabled");
     } else {
       document.body.classList.add("body-dislexia");
-      localStorage.setItem("body-dislexia", "enabled");
+      localStorage.setItem("dislexia-mode", "enabled");
     }
     setIsDislexiaMode(!isDislexiaMode);
   };

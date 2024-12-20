@@ -72,7 +72,7 @@ button {
 }
 
 #dropdown-basic {
-  background-color: var(--newHover);
+  background-color: var(--button-hover);
   border: none;
   padding: 0.8rem;
   border-radius: 0.8rem;
@@ -409,6 +409,8 @@ li:hover ~ li p {
   font-family: "Montserrat", serif;
 }
 
+/* tareas boton --------- */
+
 .menu-boton {
   background: none;
   border: none;
@@ -703,7 +705,7 @@ section {
 }
 
 .delete-button:hover {
-  background-color: red;
+  background-color: #ff0000;
 }
 
 /* MEDIDOR DE ESTRES ------------------- */
@@ -756,6 +758,54 @@ input[type="range"]::-ms-thumb {
   border-radius: 50%;
   cursor: pointer;
 }
+
+/* ERROR ----------------------------------------------- */
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+.error-icon {
+  color: #f70019;
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.error-heading {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #ff0019;
+}
+
+.error-text {
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+.error-button {
+  padding: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: var(--newHover);
+  border: none;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+.error-button:hover {
+  background-color: var(--button-hover);
+  color: wheat;
+}
+
 
 /* MODO OSCURO */
 
@@ -880,6 +930,10 @@ input[type="range"]::-ms-thumb {
   color: white;
 }
 
+.dark-mode .transaccion-item:hover {
+  background-color: #181818;
+}
+
 /* DASHBOARD Y METAS */
 
 .dark-mode .dashboard-content > section {
@@ -910,6 +964,11 @@ input[type="range"]::-ms-thumb {
   font-style: normal;
 }
 
+.body-dislexia {
+  font-family: "OpenDyslexic", Arial, sans-serif;
+  font-size: 80%;
+}
+
 .body-dislexia h1 {
   font-family: "OpenDyslexic", Arial, sans-serif;
   line-height: 1.6;
@@ -927,4 +986,56 @@ input[type="range"]::-ms-thumb {
 
 .body-dislexia button {
   font-family: "OpenDyslexic", Arial, sans-serif;
+}
+
+.body-dislexia li a {
+  font-family: "OpenDyslexic", Arial, sans-serif;
+}
+
+
+/* Metodos de accesibilidad ---- DEU,TRITA Y PROTA */
+
+.Daltonims .option-card, .Daltonims .register-container {
+  background-color: #111E24;
+}
+
+.Daltonims .btn-primary, 
+.Daltonims .agregar-tarea button,
+.Daltonims .log-out,
+ .Daltonims div button
+ {
+  background-color:#1a3565 ;
+}
+
+.Daltonims #dropdown-basic {
+  background-color: #000000;
+}
+
+.Daltonims .btn-primary:hover,
+ .Daltonims .agregar-tarea button:hover,
+ .Daltonims .log-out:hover, .Daltonims .edit-button 
+  {
+  background-color: #0d2f3f !important;
+}
+
+.Daltonims .edit-button:hover {
+  background-color: #1b5528 !important;
+}
+
+.Daltonims .menu-boton {
+  background-color: transparent;
+}
+
+
+.Daltonims .delete-button:hover {
+  background-color: #920101;
+}
+
+.Daltonims .error-icon, .Daltonims .error-heading {
+  color: #700f19;
+}
+
+
+.Daltonims .transaccion-item:hover {
+  background-color: #181818;
 }

@@ -78,8 +78,8 @@ function Transacciones() {
                                             onChange={(e) => setMontoEditado(e.target.value)}
                                             className="input-monto"
                                         />
-                                        <button onClick={() => guardarEdicion(transaccion.id)} className="save-button">
-                                            Guardar
+                                        <button onClick={() => guardarEdicion(transaccion.id)} className="delete-button">
+                                            Save
                                         </button>
                                     </>
                                 ) : (

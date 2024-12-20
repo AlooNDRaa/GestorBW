@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import HomeScreen from "./assets/components/HomeScreen";
 import RegisterScreen from "./assets/components/RegisterScreen";
-import HomeS from "./assets/components/home";
 import Transacciones from "./assets/components/Transacciones";
 import TareasHabitos from "./assets/components/TareasHabitos";
 import Footer from "./assets/components/generals/footer";
@@ -16,6 +15,7 @@ import "./App.css";
 import Header from "./assets/components/generals/header";
 import Dashboard from "./assets/components/Dashboard";
 import RangoDeEstres from "./assets/components/RangoDeEstres";
+import Error404 from "./assets/components/Error404";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -48,8 +48,6 @@ function AppContent({
   setIsAuthenticated,
 }) {
   const location = useLocation(); 
-
-  const ERROR_MESSAGE = "¡UPS! Esa página no existe...";
   const isLoginScreen = location.pathname === "/";
 
   return (
@@ -101,7 +99,7 @@ function AppContent({
         />
 
 
-        <Route path="*" element={<h2>{ERROR_MESSAGE}</h2>} />
+        <Route path="*" element={<Error404/>} />
       </Routes>
       {!isLoginScreen && <Footer />}{" "}
     </div>
