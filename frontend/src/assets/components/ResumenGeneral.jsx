@@ -1,29 +1,55 @@
-import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import React, { useEffect, useState } from "react";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 
 function ResumenGeneral() {
-    // Datos de ejemplo para los gráficos
-    const data = [
-        { name: 'Enero', ingresos: 4000, gastos: 2400 },
-        { name: 'Febrero', ingresos: 3000, gastos: 1398 },
-        { name: 'Marzo', ingresos: 2000, gastos: 9800 },
-        { name: 'Abril', ingresos: 2780, gastos: 3908 }
-    ];
+  const [data, setData] = useState([]);
 
-    return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h3>Estado Financiero Actual</h3>
-            <BarChart width={600} height={400} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="ingresos" fill="#8884d8" />
-                <Bar dataKey="gastos" fill="#82ca9d" />
-            </BarChart>
-            <p>Ingreso Total: $10,000 | Gasto Total: $8,500</p>
-        </div>
-    );
+  useEffect(() => {
+    const storedTransacciones =
+      JSON.parse(localStorage.getItem("transacciones")) || [];
+
+    const ingresosPorMes = storedTransacciones.reduce((acc, transaccion) => {
+      const mes = transaccion.fecha.slice(3, 5); 
+      const año = transaccion.fecha.slice(6, 10); 
+      const mesAño = `${mes}-${año}`; 
+      if (!acc[mesAño]) {
+        acc[mesAño] = { name: `${mes}/${año}`, ingresos: 0, gastos: 0 };
+      }
+
+      if (transaccion.monto > 0) acc[mesAño].ingresos += transaccion.monto;
+      else acc[mesAño].gastos += transaccion.monto;
+
+      return acc;
+    }, {});
+
+    const meses = Object.values(ingresosPorMes);
+    setData(meses);
+  }, []);
+
+  return (
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
+      <h3>Estado Financiero Actual</h3>
+      <BarChart
+        width={600}
+        height={400}
+        data={data}
+        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Bar dataKey="ingresos" fill="#8884d8" />
+        <Bar dataKey="gastos" fill="#82ca9d" />
+      </BarChart>
+      <p>
+        Ingreso Total: ${data.reduce((total, item) => total + item.ingresos, 0)}{" "}
+        | Gasto Total: ${data.reduce((total, item) => total + item.gastos, 0)}
+      </p>
+    </div>
+  );
 }
 
 export default ResumenGeneral;

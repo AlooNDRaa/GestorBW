@@ -66,7 +66,7 @@ function TareasHabitos() {
       <h1>Gestión de Tareas y Hábitos</h1>
 
       <div className="tipo-tarea">
-        <label>Selecciona el tipo:</label>
+        <label>Selecciona entre:</label>
         <select
           value={tipoSeleccionado}
           onChange={(e) => setTipoSeleccionado(e.target.value)}

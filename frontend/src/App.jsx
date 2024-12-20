@@ -14,6 +14,7 @@ import TareasHabitos from "./assets/components/TareasHabitos";
 import Footer from "./assets/components/generals/footer";
 import "./App.css";
 import Header from "./assets/components/generals/header";
+import Dashboard from "./assets/components/Dashboard";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -90,7 +91,7 @@ function AppContent({
 
         <Route
           path="/dashboard"
-          element={isAuthenticated ? <HomeS /> : <Navigate to="/" />}
+          element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />}
         />
 
         <Route path="*" element={<h2>{ERROR_MESSAGE}</h2>} />

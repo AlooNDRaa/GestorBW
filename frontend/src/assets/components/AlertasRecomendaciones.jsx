@@ -8,10 +8,9 @@ function AlertasRecomendaciones() {
 
     return (
         <div>
-            <h3>Alertas y Recomendaciones</h3>
-            <ul>
+            <ul className="alertas-list">
                 {alertas.map(alerta => (
-                    <li key={alerta.id}>
+                    <li key={alerta.id} className="alerta-item">
                         {alerta.mensaje}
                     </li>
                 ))}
